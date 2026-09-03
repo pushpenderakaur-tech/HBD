@@ -1,140 +1,239 @@
-// ========================================
-// HIMANSHI BIRTHDAY WEBSITE
-// ========================================
+/* =========================================
+   HIMANSHI BIRTHDAY WEBSITE
+   Smooth & Lightweight Script
+   ========================================= */
 
-
-// ========================================
-// 1. HERO BUTTON
-// ========================================
+/* -----------------------------------------
+   SCROLL TO MESSAGE
+   ----------------------------------------- */
 
 function scrollToMessage() {
-    document.getElementById("message").scrollIntoView({
-        behavior: "smooth"
+    const message = document.getElementById("message");
+
+    if (message) {
+        message.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+    }
+}
+
+
+/* -----------------------------------------
+   MUSIC
+   ----------------------------------------- */
+
+const birthdayMusic = document.getElementById("birthdayMusic");
+
+function startMusic() {
+    if (!birthdayMusic) return;
+
+    birthdayMusic.volume = 0.45;
+
+    const playPromise = birthdayMusic.play();
+
+    if (playPromise !== undefined) {
+        playPromise.catch(() => {
+            // Browser autoplay restriction.
+            // Music will start after the user's first interaction.
+        });
+    }
+}
+
+/* Try autoplay */
+
+window.addEventListener("load", () => {
+    setTimeout(() => {
+        startMusic();
+    }, 500);
+});
+
+/* Start music on first user interaction */
+
+document.addEventListener("click", startMusic, {
+    once: true,
+    passive: true
+});
+
+document.addEventListener("touchstart", startMusic, {
+    once: true,
+    passive: true
+});
+
+document.addEventListener("scroll", startMusic, {
+    once: true,
+    passive: true
+});
+
+
+/* -----------------------------------------
+   PHOTO REVEAL ANIMATION
+   ----------------------------------------- */
+
+const photoCards = document.querySelectorAll(".photo-card");
+
+if (photoCards.length > 0) {
+
+    const photoObserver = new IntersectionObserver(
+        (entries, observer) => {
+
+            entries.forEach((entry) => {
+
+                if (entry.isIntersecting) {
+
+                    entry.target.classList.add("show");
+
+                    observer.unobserve(entry.target);
+                }
+
+            });
+
+        },
+        {
+            threshold: 0.15,
+            rootMargin: "0px 0px -50px 0px"
+        }
+    );
+
+    photoCards.forEach((card) => {
+        photoObserver.observe(card);
     });
 }
 
 
-// ========================================
-// 2. CANDLE / WISH
-// ========================================
+/* -----------------------------------------
+   CANDLE
+   ----------------------------------------- */
 
 function blowCandle() {
 
     const flame = document.getElementById("flame");
     const message = document.getElementById("wish-message");
 
-    // Candle already blown
-    if (flame.style.display === "none") {
+    if (!flame || flame.style.display === "none") {
         return;
     }
 
-    // Hide flame
-    flame.style.display = "none";
+    /* Hide flame */
 
-    // Change message
-    message.innerHTML =
-        "Wish made? ✨ Happy Birthday, Himanshi! ❤️";
+    flame.style.opacity = "0";
+    flame.style.transform = "scale(0.5)";
 
-    // Fireworks
+    setTimeout(() => {
+        flame.style.display = "none";
+    }, 250);
+
+    /* Change message */
+
+    if (message) {
+        message.textContent =
+            "Wish made? ✨ Happy Birthday, Himanshi! ❤️";
+    }
+
+    /* Small celebration */
+
     createFireworks();
 }
 
 
-// ========================================
-// 3. FLOATING HEARTS
-// ========================================
+/* -----------------------------------------
+   FLOATING HEARTS
+   ----------------------------------------- */
 
 function createHeart() {
 
     const heart = document.createElement("div");
 
-    heart.innerHTML = "♥";
+    heart.textContent = "♥";
 
     heart.style.position = "fixed";
     heart.style.left = Math.random() * 100 + "vw";
-    heart.style.bottom = "-30px";
+    heart.style.bottom = "-20px";
 
     heart.style.fontSize =
-        (12 + Math.random() * 18) + "px";
+        (11 + Math.random() * 9) + "px";
 
-    heart.style.color = "#e889a7";
-    heart.style.opacity = "0.7";
+    heart.style.color = "#df91aa";
+    heart.style.opacity = "0.45";
 
     heart.style.pointerEvents = "none";
-    heart.style.zIndex = "500";
+    heart.style.zIndex = "10";
 
     document.body.appendChild(heart);
 
     const duration =
-        5000 + Math.random() * 4000;
+        6000 + Math.random() * 1500;
 
-    heart.animate(
+    const drift =
+        (Math.random() * 40) - 20;
+
+    const animation = heart.animate(
         [
             {
-                transform: "translateY(0) rotate(0deg)",
+                transform: "translate3d(0, 0, 0)",
                 opacity: 0
             },
             {
-                transform: "translateY(-50vh) rotate(25deg)",
-                opacity: 0.8
+                transform: "translate3d(" + drift + "px, -50vh, 0)",
+                opacity: 0.45
             },
             {
-                transform: "translateY(-110vh) rotate(-25deg)",
+                transform: "translate3d(" + (-drift) + "px, -110vh, 0)",
                 opacity: 0
             }
         ],
         {
             duration: duration,
-            easing: "ease-out"
+            easing: "linear"
         }
     );
 
-    setTimeout(() => {
+    animation.onfinish = () => {
         heart.remove();
-    }, duration);
+    };
 }
 
 
-// Create a heart every 1 second
+/* One heart every 2.2 seconds */
 
-setInterval(createHeart, 1000);
+setInterval(createHeart, 2200);
 
 
-// ========================================
-// 4. FIREWORKS
-// ========================================
+/* -----------------------------------------
+   FIREWORKS
+   ----------------------------------------- */
 
 function createFireworks() {
 
-    for (let i = 0; i < 45; i++) {
+    const particles = 24;
 
-        const particle =
-            document.createElement("div");
+    const fragment = document.createDocumentFragment();
+
+    for (let i = 0; i < particles; i++) {
+
+        const particle = document.createElement("div");
 
         particle.style.position = "fixed";
         particle.style.left = "50%";
         particle.style.top = "45%";
 
-        particle.style.width = "5px";
-        particle.style.height = "5px";
+        particle.style.width = "4px";
+        particle.style.height = "4px";
 
         particle.style.borderRadius = "50%";
 
-        particle.style.background =
-            i % 2 === 0
-                ? "#ffd1df"
-                : "#f3a4bd";
+        particle.style.background = "#ffd1df";
 
         particle.style.pointerEvents = "none";
-        particle.style.zIndex = "999";
+        particle.style.zIndex = "100";
 
-        document.body.appendChild(particle);
+        fragment.appendChild(particle);
 
         const angle =
             Math.random() * Math.PI * 2;
 
         const distance =
-            80 + Math.random() * 220;
+            70 + Math.random() * 130;
 
         const x =
             Math.cos(angle) * distance;
@@ -142,164 +241,102 @@ function createFireworks() {
         const y =
             Math.sin(angle) * distance;
 
-        particle.animate(
+        const animation = particle.animate(
             [
                 {
-                    transform: "translate(0, 0) scale(1)",
+                    transform: "translate3d(0, 0, 0)",
                     opacity: 1
                 },
                 {
                     transform:
-                        `translate(${x}px, ${y}px) scale(0)`,
+                        "translate3d(" +
+                        x +
+                        "px, " +
+                        y +
+                        "px, 0)",
+
                     opacity: 0
                 }
             ],
             {
-                duration:
-                    900 + Math.random() * 700,
-
-                easing:
-                    "cubic-bezier(.1,.7,.3,1)"
+                duration: 850 + Math.random() * 200,
+                easing: "cubic-bezier(0.1, 0.7, 0.2, 1)"
             }
         );
 
-        setTimeout(() => {
+        animation.onfinish = () => {
             particle.remove();
-        }, 1800);
+        };
     }
+
+    document.body.appendChild(fragment);
 }
 
 
-// ========================================
-// 5. ACTUAL BIRTHDAY MUSIC
-// ========================================
-
-const birthdayMusic =
-    document.getElementById("birthdayMusic");
-
-let musicPlaying = false;
-
-
-// ========================================
-// 6. MUSIC ON / OFF
-// ========================================
-
-function toggleMusic() {
-
-    const button =
-        document.querySelector(".music-button");
-
-    if (!birthdayMusic) {
-        alert("Music file nahi mili.");
-        return;
-    }
-
-
-    // MUSIC OFF → ON
-
-    if (!musicPlaying) {
-
-        birthdayMusic.volume = 0.5;
-
-        birthdayMusic.play()
-            .then(() => {
-
-                musicPlaying = true;
-
-                button.innerHTML =
-                    "♫ Music ON";
-
-            })
-            .catch(() => {
-
-                alert(
-                    "Music start karne ke liye ek baar button dobara dabayein."
-                );
-
-            });
-
-    }
-
-
-    // MUSIC ON → OFF
-
-    else {
-
-        birthdayMusic.pause();
-
-        musicPlaying = false;
-
-        button.innerHTML =
-            "♫ Soft Music";
-    }
-}
-
-
-// ========================================
-// 7. MUSIC ENDED
-// ========================================
-
-if (birthdayMusic) {
-
-    birthdayMusic.addEventListener(
-        "ended",
-        function () {
-
-            musicPlaying = false;
-
-            const button =
-                document.querySelector(".music-button");
-
-            if (button) {
-                button.innerHTML =
-                    "♫ Soft Music";
-            }
-        }
-    );
-}
-
-
-// ========================================
-// 8. FINAL BIRTHDAY CELEBRATION
-// ========================================
+/* -----------------------------------------
+   FINAL SECTION CELEBRATION
+   ----------------------------------------- */
 
 const finalSection =
     document.getElementById("final");
 
-
 if (finalSection) {
 
-    const observer =
+    let celebrationDone = false;
+
+    const finalObserver =
         new IntersectionObserver(
-            (entries) => {
+            (entries, observer) => {
 
-                entries.forEach(
-                    (entry) => {
+                entries.forEach((entry) => {
 
-                        if (entry.isIntersecting) {
+                    if (
+                        entry.isIntersecting &&
+                        !celebrationDone
+                    ) {
 
-                            // Small celebration
+                        celebrationDone = true;
+
+                        /* First fireworks */
+
+                        createFireworks();
+
+                        /* Second small burst */
+
+                        setTimeout(() => {
                             createFireworks();
+                        }, 900);
 
-                            setTimeout(
-                                createFireworks,
-                                700
-                            );
-
-                            setTimeout(
-                                createFireworks,
-                                1400
-                            );
-                        }
-
+                        observer.unobserve(finalSection);
                     }
-                );
+
+                });
 
             },
             {
-                threshold: 0.5
+                threshold: 0.45
             }
         );
 
-    observer.observe(finalSection);
+    finalObserver.observe(finalSection);
 }
+
+
+/* -----------------------------------------
+   PAGE VISIBILITY
+   ----------------------------------------- */
+
+document.addEventListener(
+    "visibilitychange",
+    () => {
+
+        if (
+            !document.hidden &&
+            birthdayMusic &&
+            birthdayMusic.paused
+        ) {
+            startMusic();
+        }
+
+    }
+);
