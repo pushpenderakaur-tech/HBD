@@ -4,20 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Happy Birthday Himanshi ❤️</title>
+    <title>Happy Birthday Dear Himanshi ❤️</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <!-- HERO SECTION -->
+    <!-- BACKGROUND -->
+    <div class="background-glow"></div>
+
+
+    <!-- MUSIC -->
+    <audio
+        id="birthdayMusic"
+        src="birthday.mp3"
+        loop
+        preload="auto">
+    </audio>
+
+
+    <!-- =========================
+         HERO
+    ========================== -->
+
     <section class="hero">
 
         <div class="hero-content">
 
             <p class="small-text">
-                A little surprise · just for you
+                A little something for you ❤️
             </p>
 
             <h1>
@@ -25,15 +41,18 @@
             </h1>
 
             <h2>
-                HIMANSHI
+                Himanshi
             </h2>
 
             <p class="hero-message">
-                Some people deserve more than just a "Happy Birthday."
+                Ye chhota sa message maine aapke liye banaya hai,
+                khaas aapke liye.
             </p>
 
-            <button onclick="scrollToMessage()">
-                There's something for you ↓
+            <button
+                class="main-button"
+                onclick="scrollToMessage()">
+                Aage dekhiye ↓
             </button>
 
         </div>
@@ -41,8 +60,13 @@
     </section>
 
 
-    <!-- MESSAGE SECTION -->
-    <section class="message-section" id="message">
+    <!-- =========================
+         MESSAGE
+    ========================== -->
+
+    <section
+        class="message-section"
+        id="message">
 
         <div class="section-content">
 
@@ -51,72 +75,90 @@
             </p>
 
             <h2>
-                Sabse pehle,<br>
                 Happy Birthday! ❤️
             </h2>
 
-            <p>
-                Tu meri life ke un logon mein se hai jinke saath
-                baat karna kabhi boring nahi lagta.
-            </p>
+            <div class="message-text">
 
-            <p>
-                Kabhi dost wali bakchodi, kabhi random conversations,
-                aur kabhi bina kisi reason ke bas baat karte rehna —
-                honestly, mujhe ye sab kaafi pasand hai.
-            </p>
+                <p>
+                    Sabse pehle, dil se Happy Birthday.
+                </p>
 
-            <p>
-                Tu thodi special hai mere liye…
-                shayad jitna main normally bolta nahi hoon,
-                usse thoda zyada. 😌
-            </p>
+                <p>
+                    Ye website maine aapke liye banayi hai,
+                    kyunki aap mere liye special hain.
+                </p>
 
-            <p>
-                Bas aaj ke din itna bolna tha —
-                khush rehna, smile karte rehna aur
-                apni ye wali Himanshi hamesha rehna.
-            </p>
+                <p>
+                    Main zyada kuch nahi likhunga.
+                    Bas itna kehna hai ki aap hamesha khush rahen,
+                    smile karti rahen aur bilkul aisi hi rahen
+                    jaisi aap hain.
+                </p>
 
-            <p>
-                And haan… birthday hai toh
-                thoda extra attention toh banta hai. 😄❤️
-            </p>
+                <p>
+                    Aapka ye birthday thoda special ho —
+                    bas isi chhoti si effort ke saath. ❤️
+                </p>
+
+            </div>
 
         </div>
 
     </section>
 
 
-    <!-- PHOTOS SECTION -->
+    <!-- =========================
+         PHOTOS
+    ========================== -->
+
     <section class="photos-section">
 
         <div class="section-content">
 
             <p class="section-label">
-                Some memories
+                Some Himanshi Moments
             </p>
 
             <h2>
-                Four little moments 📸
+                Just a few pictures<br>
+                of someone special.
             </h2>
+
+            <p class="photos-intro">
+                Kuch moments bas photos nahi hote,
+                unhe dekh kar automatically smile aa jaati hai. ❤️
+            </p>
+
 
             <div class="photo-grid">
 
-                <div class="photo-card">
-                    <img src="photo1.jpg" alt="Himanshi Photo 1">
+                <div class="photo-card photo-one">
+                    <img
+                        src="photo1.jpg"
+                        alt="Himanshi">
+                    <span>01</span>
                 </div>
 
-                <div class="photo-card">
-                    <img src="photo2.jpg" alt="Himanshi Photo 2">
+                <div class="photo-card photo-two">
+                    <img
+                        src="photo2.jpg"
+                        alt="Himanshi">
+                    <span>02</span>
                 </div>
 
-                <div class="photo-card">
-                    <img src="photo3.jpg" alt="Himanshi Photo 3">
+                <div class="photo-card photo-three">
+                    <img
+                        src="photo3.jpg"
+                        alt="Himanshi">
+                    <span>03</span>
                 </div>
 
-                <div class="photo-card">
-                    <img src="photo4.jpg" alt="Himanshi Photo 4">
+                <div class="photo-card photo-four">
+                    <img
+                        src="photo4.jpg"
+                        alt="Himanshi">
+                    <span>04</span>
                 </div>
 
             </div>
@@ -126,35 +168,42 @@
     </section>
 
 
-    <!-- REASONS SECTION -->
+    <!-- =========================
+         THINGS I LIKE
+    ========================== -->
+
     <section class="reasons-section">
 
         <div class="section-content">
 
             <p class="section-label">
-                Things I like about you
+                A few things
             </p>
 
             <h2>
-                A few things<br>
-                worth mentioning...
+                Things I genuinely<br>
+                like about you.
             </h2>
 
 
             <div class="reason">
 
-                <span>01</span>
+                <div class="reason-number">
+                    01
+                </div>
 
-                <div>
+                <div class="reason-content">
+
                     <h3>
-                        I actually like listening to you.
+                        I like listening to you.
                     </h3>
 
                     <p>
-                        Sabko lagta hai tum bahut bolti ho 😄,
-                        but honestly mujhe tumhe sunna pasand hai.
-                        Tumhari random baatein bhi interesting lagti hain.
+                        Sabko lagta hai aap bahut bolti hain 😄,
+                        lekin honestly mujhe aapko sunna pasand hai.
+                        Aapki random baatein bhi interesting lagti hain.
                     </p>
+
                 </div>
 
             </div>
@@ -162,19 +211,23 @@
 
             <div class="reason">
 
-                <span>02</span>
+                <div class="reason-number">
+                    02
+                </div>
 
-                <div>
+                <div class="reason-content">
+
                     <h3>
                         You say what you mean.
                     </h3>
 
                     <p>
-                        Jo mann mein hota hai, clearly bol deti ho.
-                        Har baat pe darna nahi —
-                        ye confidence mujhe tumhare andar
-                        genuinely achha lagta hai.
+                        Jo mann mein hota hai, clearly bol deti hain.
+                        Har baat se unnecessarily darna nahi —
+                        ye confidence mujhe aapke andar genuinely
+                        achha lagta hai.
                     </p>
+
                 </div>
 
             </div>
@@ -182,24 +235,28 @@
 
             <div class="reason">
 
-                <span>03</span>
+                <div class="reason-number">
+                    03
+                </div>
 
-                <div>
+                <div class="reason-content">
+
                     <h3>
                         You are stronger than you realise.
                     </h3>
 
                     <p>
-                        Apna ghar akele sambhalna, cheezein manage
-                        karna aur phir bhi strong rehna —
+                        Apna ghar sambhalna, cheezein manage karna
+                        aur phir bhi strong rehna —
                         ye chhoti baat nahi hai.
                     </p>
 
                     <p>
-                        Jo situations tumne dekhi hain,
-                        unke baad bhi tum jis tarah strong rehti ho,
-                        ye mujhe sabse zyada achha lagta hai.
+                        Jo kuch bhi aapne face kiya hai,
+                        uske baad bhi aap jis tarah strong rehti hain,
+                        ye baat mujhe sabse zyada achhi lagti hai.
                     </p>
+
                 </div>
 
             </div>
@@ -209,27 +266,34 @@
     </section>
 
 
-    <!-- CAKE SECTION -->
+    <!-- =========================
+         CAKE
+    ========================== -->
+
     <section class="cake-section">
 
-        <div class="section-content">
+        <div class="section-content cake-content">
 
             <p class="section-label">
-                One more thing...
+                One last little thing
             </p>
 
             <h2>
-                Make a wish 🎂
+                Make a wish ✨
             </h2>
 
             <p class="cake-instruction">
-                Click the candle to blow it out.
+                Candle par click karke apni wish maangiye.
             </p>
 
 
-            <div class="cake-container" onclick="blowCandle()">
+            <div
+                class="cake-container"
+                onclick="blowCandle()">
 
-                <div class="flame" id="flame">
+                <div
+                    class="flame"
+                    id="flame">
                     🔥
                 </div>
 
@@ -238,15 +302,24 @@
                 </div>
 
                 <div class="cake">
+
                     <div class="cake-top"></div>
+
+                    <div class="cake-cream">
+                        ● ● ● ● ●
+                    </div>
+
                     <div class="cake-body"></div>
+
                 </div>
 
             </div>
 
 
-            <p id="wish-message" class="wish-message">
-                Make your birthday wish... ✨
+            <p
+                id="wish-message"
+                class="wish-message">
+                Your wish is waiting... ✨
             </p>
 
         </div>
@@ -254,13 +327,18 @@
     </section>
 
 
-    <!-- FINAL SECTION -->
-    <section class="final-section" id="final">
+    <!-- =========================
+         FINAL
+    ========================== -->
+
+    <section
+        class="final-section"
+        id="final">
 
         <div class="final-content">
 
             <p class="final-small">
-                And one last thing...
+                For you, Himanshi
             </p>
 
             <h1>
@@ -272,24 +350,23 @@
                 My Dear Himanshi ❤️
             </h2>
 
-            <p>
-                I hope this year gives you more reasons to smile,
-                more moments worth remembering, and all the little
-                things you've been wishing for.
+            <p class="final-message">
+                I hope this year brings you lots of happiness,
+                beautiful moments, peace and many reasons to smile.
             </p>
 
-            <p>
-                Stay exactly the way you are —
-                strong, confident, talkative and a little crazy. ❤️
+            <p class="final-message">
+                Stay strong, stay confident,
+                keep smiling and always be yourself. ❤️
             </p>
 
-            <div class="heart">
+            <div class="final-heart">
                 ♥
             </div>
 
             <p class="made-for-you">
                 Made with a little extra effort,
-                just for you.
+                especially for you.
             </p>
 
         </div>
@@ -297,12 +374,8 @@
     </section>
 
 
-    <!-- MUSIC BUTTON -->
-    <button class="music-button" onclick="toggleMusic()">
-        ♫ Soft Music
-    </button>
+    <!-- JAVASCRIPT -->
 
-<audio id="birthdayMusic" src="birthday.mp3" loop></audio>
     <script src="script.js"></script>
 
 </body>
