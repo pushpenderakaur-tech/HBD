@@ -1,382 +1,431 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#ffffff" />
+  <title>Happy Birthday Himanshi ❤️</title>
 
-    <title>Happy Birthday Dear Himanshi ❤️</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
 
-    <!-- BACKGROUND -->
-    <div class="background-glow"></div>
+  <audio id="birthdayMusic" src="birthday.mp3" loop preload="auto"></audio>
 
+  <!-- =========================
+       1. ENTRY / GIFT
+  ========================== -->
+  <section id="entry" class="entry-screen">
 
-    <!-- MUSIC -->
-    <audio
-        id="birthdayMusic"
-        src="birthday.mp3"
-        loop
-        preload="auto">
-    </audio>
+    <div class="heart-bg heart-bg-1">♡</div>
+    <div class="heart-bg heart-bg-2">♡</div>
+    <div class="heart-bg heart-bg-3">♡</div>
 
+    <button class="gift-wrap" id="giftButton" aria-label="Open birthday gift">
 
-    <!-- =========================
-         HERO
-    ========================== -->
+      <div class="gift-shadow"></div>
 
-    <section class="hero">
+      <div class="gift-box">
 
-        <div class="hero-content">
-
-            <p class="small-text">
-                A little something for you ❤️
-            </p>
-
-            <h1>
-                Happy Birthday
-            </h1>
-
-            <h2>
-                Himanshi
-            </h2>
-
-            <p class="hero-message">
-                Ye chhota sa message maine aapke liye banaya hai,
-                khaas aapke liye.
-            </p>
-
-            <button
-                class="main-button"
-                onclick="scrollToMessage()">
-                Aage dekhiye ↓
-            </button>
-
+        <div class="gift-lid">
+          <div class="lid-ribbon"></div>
+          <div class="lid-top"></div>
         </div>
 
-    </section>
-
-
-    <!-- =========================
-         MESSAGE
-    ========================== -->
-
-    <section
-        class="message-section"
-        id="message">
-
-        <div class="section-content">
-
-            <p class="section-label">
-                A little message
-            </p>
-
-            <h2>
-                Happy Birthday! ❤️
-            </h2>
-
-            <div class="message-text">
-
-                <p>
-                    Sabse pehle, dil se Happy Birthday.
-                </p>
-
-                <p>
-                    Ye website maine aapke liye banayi hai,
-                    kyunki aap mere liye special hain.
-                </p>
-
-                <p>
-                    Main zyada kuch nahi likhunga.
-                    Bas itna kehna hai ki aap hamesha khush rahen,
-                    smile karti rahen aur bilkul aisi hi rahen
-                    jaisi aap hain.
-                </p>
-
-                <p>
-                    Aapka ye birthday thoda special ho —
-                    bas isi chhoti si effort ke saath. ❤️
-                </p>
-
-            </div>
-
+        <div class="gift-body">
+          <div class="vertical-ribbon"></div>
+          <div class="horizontal-ribbon"></div>
         </div>
 
-    </section>
-
-
-    <!-- =========================
-         PHOTOS
-    ========================== -->
-
-    <section class="photos-section">
-
-        <div class="section-content">
-
-            <p class="section-label">
-                Some Himanshi Moments
-            </p>
-
-            <h2>
-                Just a few pictures<br>
-                of someone special.
-            </h2>
-
-            <p class="photos-intro">
-                Kuch moments bas photos nahi hote,
-                unhe dekh kar automatically smile aa jaati hai. ❤️
-            </p>
-
-
-            <div class="photo-grid">
-
-                <div class="photo-card photo-one">
-                    <img
-                        src="photo1.jpg"
-                        alt="Himanshi">
-                    <span>01</span>
-                </div>
-
-                <div class="photo-card photo-two">
-                    <img
-                        src="photo2.jpg"
-                        alt="Himanshi">
-                    <span>02</span>
-                </div>
-
-                <div class="photo-card photo-three">
-                    <img
-                        src="photo3.jpg"
-                        alt="Himanshi">
-                    <span>03</span>
-                </div>
-
-                <div class="photo-card photo-four">
-                    <img
-                        src="photo4.jpg"
-                        alt="Himanshi">
-                    <span>04</span>
-                </div>
-
-            </div>
-
+        <div class="gift-bow">
+          <span class="bow-left"></span>
+          <span class="bow-right"></span>
+          <span class="bow-center"></span>
         </div>
 
-    </section>
+      </div>
+    </button>
+
+    <div class="gift-particles" id="giftParticles"></div>
+
+    <div class="birthday-reveal" id="birthdayReveal">
+
+      <div class="reveal-heart">♡</div>
+
+      <p class="small-intro">A little something for you</p>
+
+      <h1>Happy Birthday<br><span>Himanshi! 🎉</span></h1>
+
+      <div class="age-line">
+        <span id="ageNumber">24</span>
+        <span>years of being amazing ✨</span>
+      </div>
+
+      <div class="opening-message">
+        A very very Happy Birthday, Himanshi! ✨ May this day be super special for you.
+        Enjoy to the fullest, travel, eat good food, and make amazing memories with your
+        family and friends. Wishing you an incredible year ahead filled with success,
+        happiness, and peace!
+      </div>
+
+      <button class="primary-button" id="continueButton">
+        Continue <span>↓</span>
+      </button>
+
+    </div>
+  </section>
 
 
-    <!-- =========================
-         THINGS I LIKE
-    ========================== -->
+  <!-- =========================
+       2. BALLOONS
+  ========================== -->
+  <section id="balloons" class="section balloons-section">
 
-    <section class="reasons-section">
+    <div class="section-heading reveal">
+      <span class="eyebrow">A little game for you</span>
+      <h2>Pop the balloons 🎈</h2>
+      <p>There are four little surprises waiting for you.</p>
+    </div>
 
-        <div class="section-content">
+    <div class="balloon-area">
 
-            <p class="section-label">
-                A few things
-            </p>
+      <button class="balloon balloon-one" data-word="Something" data-index="1">
+        <span class="balloon-shine"></span>
+        <span class="balloon-knot"></span>
+        <span class="balloon-string"></span>
+      </button>
 
-            <h2>
-                Things I genuinely<br>
-                like about you.
-            </h2>
+      <button class="balloon balloon-two" data-word="Special" data-index="2">
+        <span class="balloon-shine"></span>
+        <span class="balloon-knot"></span>
+        <span class="balloon-string"></span>
+      </button>
 
+      <button class="balloon balloon-three" data-word="For" data-index="3">
+        <span class="balloon-shine"></span>
+        <span class="balloon-knot"></span>
+        <span class="balloon-string"></span>
+      </button>
 
-            <div class="reason">
+      <button class="balloon balloon-four" data-word="You ❤️" data-index="4">
+        <span class="balloon-shine"></span>
+        <span class="balloon-knot"></span>
+        <span class="balloon-string"></span>
+      </button>
 
-                <div class="reason-number">
-                    01
-                </div>
+    </div>
 
-                <div class="reason-content">
+    <div class="word-reveal">
+      <span id="word1">Something</span>
+      <span id="word2">Special</span>
+      <span id="word3">For</span>
+      <span id="word4">You ❤️</span>
+    </div>
 
-                    <h3>
-                        I like listening to you.
-                    </h3>
+    <div class="balloon-complete" id="balloonComplete">
+      <h3>Something Special For You ❤️</h3>
+      <button id="scrollAfterBalloons">Scroll down ↓</button>
+    </div>
 
-                    <p>
-                        Sabko lagta hai aap bahut bolti hain 😄,
-                        lekin honestly mujhe aapko sunna pasand hai.
-                        Aapki random baatein bhi interesting lagti hain.
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <div class="reason">
-
-                <div class="reason-number">
-                    02
-                </div>
-
-                <div class="reason-content">
-
-                    <h3>
-                        You say what you mean.
-                    </h3>
-
-                    <p>
-                        Jo mann mein hota hai, clearly bol deti hain.
-                        Har baat se unnecessarily darna nahi —
-                        ye confidence mujhe aapke andar genuinely
-                        achha lagta hai.
-                    </p>
-
-                </div>
-
-            </div>
+  </section>
 
 
-            <div class="reason">
+  <!-- =========================
+       3. PERSONAL WISH
+  ========================== -->
+  <section id="wish" class="section wish-section">
 
-                <div class="reason-number">
-                    03
-                </div>
+    <div class="soft-heart heart-one">♡</div>
+    <div class="soft-heart heart-two">♡</div>
 
-                <div class="reason-content">
+    <div class="message-card reveal">
 
-                    <h3>
-                        You are stronger than you realise.
-                    </h3>
+      <div class="message-icon">♥</div>
 
-                    <p>
-                        Apna ghar sambhalna, cheezein manage karna
-                        aur phir bhi strong rehna —
-                        ye chhoti baat nahi hai.
-                    </p>
+      <span class="eyebrow">A birthday wish</span>
 
-                    <p>
-                        Jo kuch bhi aapne face kiya hai,
-                        uske baad bhi aap jis tarah strong rehti hain,
-                        ye baat mujhe sabse zyada achhi lagti hai.
-                    </p>
+      <h2>For You, Himanshi</h2>
 
-                </div>
+      <p>
+        A very very Happy Birthday, Himanshi! ✨ May this day be super special for you.
+        Enjoy to the fullest, travel, eat good food, and make amazing memories with your
+        family and friends. Wishing you an incredible year ahead filled with success,
+        happiness, and peace!
+      </p>
 
-            </div>
+    </div>
 
+  </section>
+
+
+  <!-- =========================
+       4. PHOTO GALLERY
+  ========================== -->
+  <section id="photos" class="section gallery-section">
+
+    <div class="section-heading reveal">
+      <span class="eyebrow">Little memories</span>
+      <h2>Moments worth keeping 📸</h2>
+    </div>
+
+    <div class="photo-line reveal">
+
+      <div class="line-wire"></div>
+
+      <div class="hanging-photo photo-a">
+        <div class="peg"></div>
+        <div class="polaroid">
+          <img src="photo1.jpg" alt="Memory 1" loading="lazy" decoding="async">
+        </div>
+      </div>
+
+      <div class="hanging-photo photo-b">
+        <div class="peg"></div>
+        <div class="polaroid">
+          <img src="photo2.jpg" alt="Memory 2" loading="lazy" decoding="async">
+        </div>
+      </div>
+
+      <div class="hanging-photo photo-c">
+        <div class="peg"></div>
+        <div class="polaroid">
+          <img src="photo3.jpg" alt="Memory 3" loading="lazy" decoding="async">
+        </div>
+      </div>
+
+      <div class="hanging-photo photo-d">
+        <div class="peg"></div>
+        <div class="polaroid">
+          <img src="photo4.jpg" alt="Memory 4" loading="lazy" decoding="async">
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       5. WHAT I LOVE
+  ========================== -->
+  <section id="love" class="section love-section">
+
+    <div class="section-heading reveal">
+      <span class="eyebrow">Things I admire</span>
+      <h2>What I Love About You</h2>
+      <p>Some things simply deserve to be said. ❤️</p>
+    </div>
+
+    <div class="qualities-grid">
+
+      <article class="quality-card reveal">
+        <div class="quality-number">01</div>
+        <div class="quality-heart">♡</div>
+        <h3>Your Honesty</h3>
+        <p>
+          Sab log kehte hain tum bohot bolti ho, bina soche bolti ho... par mujhe tumhari
+          yahi baat sabse acchi lagti hai! Tum peeth piche kuch nahi rakhti, jo hai saamne
+          bolti ho. Straightforward, no fear, completely transparent and confident!
+        </p>
+      </article>
+
+      <article class="quality-card reveal">
+        <div class="quality-number">02</div>
+        <div class="quality-heart">♡</div>
+        <h3>Listening to You</h3>
+        <p>
+          Mujhe tumhari baatein sunna aur tumse baat karna bohot pasand hai.
+        </p>
+      </article>
+
+      <article class="quality-card reveal">
+        <div class="quality-number">03</div>
+        <div class="quality-heart">♡</div>
+        <h3>That Eye Detail</h3>
+        <p>
+          Aur haan, wo jo tum aakhon pe lagati ho (eyeliner/kohl)... jab bhi lagati ho,
+          bohot pyaari lagti ho!
+        </p>
+      </article>
+
+      <article class="quality-card reveal">
+        <div class="quality-number">04</div>
+        <div class="quality-heart">♡</div>
+        <h3>Your Strength &amp; Resilience</h3>
+        <p>
+          Jis tarah tumne ghar ki situation ke baad sab kuch akele sambhala hai—you are a
+          super strong girl. Kisi se nahi darna, hamesha confident aur real rehna—respect!
+        </p>
+      </article>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       6. CAKE
+  ========================== -->
+  <section id="cake" class="section cake-section">
+
+    <div class="section-heading reveal">
+      <span class="eyebrow">Make a wish</span>
+      <h2>One more little celebration 🎂</h2>
+    </div>
+
+    <div class="cake-stage reveal">
+
+      <div class="cake-glow"></div>
+
+      <div class="cake">
+
+        <div class="candle">
+          <div class="candle-stick"></div>
+          <div class="candle-flame" id="candleFlame"></div>
+
+          <div class="smoke smoke-one"></div>
+          <div class="smoke smoke-two"></div>
+          <div class="smoke smoke-three"></div>
         </div>
 
-    </section>
-
-
-    <!-- =========================
-         CAKE
-    ========================== -->
-
-    <section class="cake-section">
-
-        <div class="section-content cake-content">
-
-            <p class="section-label">
-                One last little thing
-            </p>
-
-            <h2>
-                Make a wish ✨
-            </h2>
-
-            <p class="cake-instruction">
-                Candle par click karke apni wish maangiye.
-            </p>
-
-
-            <div
-                class="cake-container"
-                onclick="blowCandle()">
-
-                <div
-                    class="flame"
-                    id="flame">
-                    🔥
-                </div>
-
-                <div class="candle">
-                    🕯️
-                </div>
-
-                <div class="cake">
-
-                    <div class="cake-top"></div>
-
-                    <div class="cake-cream">
-                        ● ● ● ● ●
-                    </div>
-
-                    <div class="cake-body"></div>
-
-                </div>
-
-            </div>
-
-
-            <p
-                id="wish-message"
-                class="wish-message">
-                Your wish is waiting... ✨
-            </p>
-
+        <div class="cake-top">
+          <div class="icing"></div>
+          <span class="sprinkle s1"></span>
+          <span class="sprinkle s2"></span>
+          <span class="sprinkle s3"></span>
+          <span class="sprinkle s4"></span>
+          <span class="sprinkle s5"></span>
         </div>
 
-    </section>
+        <div class="cake-middle"></div>
+        <div class="cake-bottom"></div>
+
+        <div class="cake-plate"></div>
+
+      </div>
+
+      <button class="primary-button blow-button" id="blowButton">
+        Blow Candle ✨
+      </button>
+
+      <div class="cake-message" id="cakeMessage">
+        Happy Birthday Himanshi! 🎂✨
+      </div>
+
+    </div>
+
+  </section>
 
 
-    <!-- =========================
-         FINAL
-    ========================== -->
+  <!-- =========================
+       7. BOW & ARROW GAME
+  ========================== -->
+  <section id="game" class="section game-section">
 
-    <section
-        class="final-section"
-        id="final">
+    <div class="section-heading reveal">
+      <span class="eyebrow">One tiny challenge</span>
+      <h2>Hit the heart 🏹</h2>
+      <p>Pull the arrow back and release it.</p>
+    </div>
 
-        <div class="final-content">
+    <div class="game-board reveal" id="gameBoard">
 
-            <p class="final-small">
-                For you, Himanshi
-            </p>
+      <div class="game-stars">
+        <span>✦</span>
+        <span>·</span>
+        <span>✧</span>
+        <span>·</span>
+        <span>✦</span>
+      </div>
 
-            <h1>
-                HAPPY<br>
-                BIRTHDAY
-            </h1>
+      <div class="target-heart" id="heartTarget">
+        <span class="heart-symbol">♥</span>
+      </div>
 
-            <h2>
-                My Dear Himanshi ❤️
-            </h2>
+      <div class="bow" id="bow">
 
-            <p class="final-message">
-                I hope this year brings you lots of happiness,
-                beautiful moments, peace and many reasons to smile.
-            </p>
+        <div class="bow-upper"></div>
+        <div class="bow-lower"></div>
 
-            <p class="final-message">
-                Stay strong, stay confident,
-                keep smiling and always be yourself. ❤️
-            </p>
-
-            <div class="final-heart">
-                ♥
-            </div>
-
-            <p class="made-for-you">
-                Made with a little extra effort,
-                especially for you.
-            </p>
-
+        <div class="bow-string" id="bowString">
+          <span class="string-top"></span>
+          <span class="string-middle"></span>
+          <span class="string-bottom"></span>
         </div>
 
-    </section>
+      </div>
+
+      <div class="game-arrow" id="gameArrow">
+        <div class="arrow-shaft"></div>
+        <div class="arrow-head"></div>
+        <div class="arrow-feathers"></div>
+      </div>
+
+      <div class="game-hint" id="gameHint">
+        Drag the arrow backwards ↤
+      </div>
+
+      <div class="game-success" id="gameSuccess">
+        <span>💘</span>
+        <p>Yahi haal hai mera abhi...</p>
+      </div>
+
+    </div>
+
+  </section>
 
 
-    <!-- JAVASCRIPT -->
+  <!-- =========================
+       8. FINALE
+  ========================== -->
+  <section id="finale" class="section finale-section">
 
-    <script src="script.js"></script>
+    <div class="sky-glow"></div>
+
+    <div class="flying-creatures">
+
+      <div class="flying-bird bird-one">
+        <span class="bird-body"></span>
+        <span class="bird-wing wing-left"></span>
+        <span class="bird-wing wing-right"></span>
+      </div>
+
+      <div class="flying-bird bird-two">
+        <span class="bird-body"></span>
+        <span class="bird-wing wing-left"></span>
+        <span class="bird-wing wing-right"></span>
+      </div>
+
+      <div class="butterfly butterfly-one">
+        <span></span><span></span>
+      </div>
+
+      <div class="butterfly butterfly-two">
+        <span></span><span></span>
+      </div>
+
+    </div>
+
+    <div class="final-message reveal">
+
+      <div class="final-heart">♥</div>
+
+      <h2>
+        Once again, a very Happy Birthday Himanshi!
+      </h2>
+
+      <p>Stay blessed always. ❤️</p>
+
+    </div>
+
+  </section>
+
+  <script src="script.js"></script>
 
 </body>
 </html>
